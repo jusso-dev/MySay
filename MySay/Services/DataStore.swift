@@ -7,7 +7,7 @@ final class DataStore {
     let container: ModelContainer
     var context: ModelContext { container.mainContext }
 
-    nonisolated static let schema = Schema([
+    static let schema = Schema([
         IconItem.self,
         IconCategory.self,
         Board.self,
