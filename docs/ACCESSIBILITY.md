@@ -23,7 +23,7 @@ adults supporting them.
 - Section headers carry `.isHeader` traits for rotor navigation
 - The sentence strip is a container whose label reads the full sentence
 - The passcode keypad reports digits entered ("2 of 4 digits entered")
-- A UI test runs `performAccessibilityAudit` on the home screen every CI run
+- The local UI test suite runs `performAccessibilityAudit` on the home screen
 
 Note: when VoiceOver is active, tiles still speak via the app's
 synthesizer after activation — consistent with mainstream AAC apps.
