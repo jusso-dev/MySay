@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible problem in MySay.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for helping improve MySay. Do not attach personal health
+        information, children's photos or recordings, or exported libraries.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Tap ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: MySay commit/version, iPad model or simulator, and iPadOS version.
+      placeholder: main at abc1234, iPad Pro simulator, iPadOS 18.5
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add sanitised logs or screenshots if useful.
