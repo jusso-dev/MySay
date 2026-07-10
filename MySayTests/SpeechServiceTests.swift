@@ -2,6 +2,7 @@ import AVFoundation
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Speech service")
 struct SpeechServiceTests {
     @Test("Utterance uses the requested rate and pitch")

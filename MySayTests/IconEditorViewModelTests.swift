@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Icon editor")
 struct IconEditorViewModelTests {
     @Test("Cannot save without a title and category")

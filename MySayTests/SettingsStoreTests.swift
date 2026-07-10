@@ -2,6 +2,7 @@ import AVFoundation
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Settings store")
 struct SettingsStoreTests {
     @Test("Fresh install uses sensible defaults")

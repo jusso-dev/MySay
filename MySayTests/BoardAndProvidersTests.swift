@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Boards")
 struct BoardTests {
     @Test("Boards persist an ordered icon list by reference")
@@ -49,6 +50,7 @@ struct BoardTests {
     }
 }
 
+@MainActor
 @Suite("Symbol providers")
 struct SymbolProviderTests {
     @Test("Providers expose stable identities and sources")

@@ -6,6 +6,7 @@ import SwiftData
 typealias DataStore = MySay.DataStore
 
 /// Shared helpers for unit tests.
+@MainActor
 enum TestSupport {
     /// Fresh in-memory store, optionally pre-seeded with the bundled data.
     static func makeStore(seeded: Bool = false) throws -> DataStore {

@@ -2,6 +2,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Seed data")
 struct SeedDataTests {
     @Test("Ships at least 100 icons")

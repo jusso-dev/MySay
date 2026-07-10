@@ -2,6 +2,7 @@ import AVFoundation
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Personal Voice")
 struct PersonalVoiceTests {
     @Test("Personal voice listing never crashes and only returns personal voices")

@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Usage tracking")
 struct UsageTrackingServiceTests {
     @Test("Recording usage increments the count and stamps the date")

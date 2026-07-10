@@ -1,6 +1,7 @@
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Parent gate")
 struct ParentGateViewModelTests {
     @Test("First use walks through create and confirm")

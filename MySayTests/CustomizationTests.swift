@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Tile ordering and hiding")
 struct OrderingAndHidingTests {
     @Test("Seeded icons get stable, sequential positions per category")
@@ -76,6 +77,7 @@ struct OrderingAndHidingTests {
     }
 }
 
+@MainActor
 @Suite("Library upgrades")
 struct LibraryUpgradeTests {
     @Test("Existing libraries gain new seed categories without duplication")
@@ -202,6 +204,7 @@ struct LibraryUpgradeTests {
     }
 }
 
+@MainActor
 @Suite("Recorded voice")
 struct RecordedVoiceTests {
     @Test("Icons with a recording play it; replay repeats the recording")
@@ -265,6 +268,7 @@ struct RecordedVoiceTests {
     }
 }
 
+@MainActor
 @Suite("Lizard easter egg")
 struct LizardEasterEggTests {
     @Test("Seeded Lizard tile carries the bundled recording")
@@ -300,6 +304,7 @@ struct LizardEasterEggTests {
     }
 }
 
+@MainActor
 @Suite("Sentence strip settings")
 struct SentenceStripSettingTests {
     @Test("Strip defaults to on and persists")

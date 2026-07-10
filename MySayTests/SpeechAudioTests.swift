@@ -5,6 +5,7 @@ import Testing
 /// End-to-end audio checks: these drive the real `AVSpeechSynthesizer`
 /// (audio enabled), not the silent test double, so they prove the speech
 /// pipeline actually produces output on this OS.
+@MainActor
 @Suite("Speech audio pipeline", .serialized)
 struct SpeechAudioTests {
     @Test("Synthesizer genuinely starts speaking")

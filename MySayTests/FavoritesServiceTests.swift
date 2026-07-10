@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Favourites")
 struct FavoritesServiceTests {
     @Test("Toggling adds and removes a favourite")

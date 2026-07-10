@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Persistence and backup")
 struct PersistenceTests {
     @Test("Export then import round-trips the whole library")

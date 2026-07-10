@@ -1,6 +1,7 @@
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Phrase builder")
 struct PhraseBuilderViewModelTests {
     @Test("Builds the canonical example: I + want + drink")

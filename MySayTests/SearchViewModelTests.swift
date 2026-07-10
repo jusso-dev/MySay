@@ -2,6 +2,7 @@ import SwiftData
 import Testing
 @testable import MySay
 
+@MainActor
 @Suite("Search")
 struct SearchViewModelTests {
     @Test("Empty query returns nothing")
