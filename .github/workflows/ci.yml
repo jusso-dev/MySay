@@ -27,13 +27,38 @@ jobs:
       - name: Show toolchain
         run: xcodebuild -version
 
+      - name: Prepare iPad simulator
+        run: |
+          SIMULATOR_ID="$(
+            xcrun simctl list devices available --json |
+              jq -r '[.devices[][] | select(.name | startswith("iPad"))] | first | .udid // empty'
+          )"
+
+          if [[ -z "$SIMULATOR_ID" ]]; then
+            RUNTIME_ID="$(
+              xcrun simctl list runtimes --json |
+                jq -r '[.runtimes[] | select(.isAvailable and (.name | startswith("iOS")))] | sort_by(.version) | last | .identifier'
+            )"
+            DEVICE_TYPE_ID="$(
+              xcrun simctl list devicetypes --json |
+                jq -r '[.devicetypes[] | select(.name | startswith("iPad"))] | last | .identifier'
+            )"
+            SIMULATOR_ID="$(
+              xcrun simctl create "MySay CI iPad" "$DEVICE_TYPE_ID" "$RUNTIME_ID"
+            )"
+          fi
+
+          xcrun simctl boot "$SIMULATOR_ID" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIMULATOR_ID" -b
+          echo "SIMULATOR_ID=$SIMULATOR_ID" >> "$GITHUB_ENV"
+
       - name: Run tests
         run: |
           set -o pipefail
           xcodebuild test \
             -project MySay.xcodeproj \
             -scheme MySay \
-            -destination 'platform=iOS Simulator,name=iPad Pro 11-inch (M4),OS=latest' \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             -resultBundlePath TestResults.xcresult \
             CODE_SIGNING_ALLOWED=NO
 
