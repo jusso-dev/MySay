@@ -7,20 +7,19 @@ final class DataStore {
     let container: ModelContainer
     var context: ModelContext { container.mainContext }
 
-    static let schema = Schema([
-        IconItem.self,
-        IconCategory.self,
-        Board.self,
-    ])
-
     /// - Parameter inMemory: true for unit tests, previews, and UI tests
     ///   so runs never touch the real on-device store.
     init(inMemory: Bool = false) throws {
+        let schema = Schema([
+            IconItem.self,
+            IconCategory.self,
+            Board.self,
+        ])
         let configuration = ModelConfiguration(
-            schema: Self.schema,
+            schema: schema,
             isStoredInMemoryOnly: inMemory
         )
-        container = try ModelContainer(for: Self.schema, configurations: [configuration])
+        container = try ModelContainer(for: schema, configurations: [configuration])
     }
 
     // MARK: - Seeding
