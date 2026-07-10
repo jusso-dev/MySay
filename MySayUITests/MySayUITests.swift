@@ -3,6 +3,7 @@ import XCTest
 /// End-to-end UI tests. The app launches with `--uitest`, which switches it
 /// to an in-memory store and throwaway defaults, so tests never touch real
 /// data. `--uitest-skip-onboarding` jumps straight to the main interface.
+@MainActor
 final class MySayUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
