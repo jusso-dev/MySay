@@ -112,6 +112,7 @@ final class SpeechService {
     /// Ask the system for access to the user's Personal Voice. Shows the
     /// system consent alert on first call; afterwards returns the stored
     /// decision immediately.
+    @MainActor
     func requestPersonalVoiceAuthorization() async -> AVSpeechSynthesizer.PersonalVoiceAuthorizationStatus {
         await withCheckedContinuation { continuation in
             AVSpeechSynthesizer.requestPersonalVoiceAuthorization { status in

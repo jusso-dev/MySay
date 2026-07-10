@@ -14,6 +14,7 @@ final class AudioRecordingService {
     private(set) var isRecording = false
 
     /// Ask for microphone access. Returns whether recording is allowed.
+    @MainActor
     func requestPermission() async -> Bool {
         await AVAudioApplication.requestRecordPermission()
     }
