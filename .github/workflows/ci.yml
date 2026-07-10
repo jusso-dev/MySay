@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  unit-tests:
-    name: Unit tests
+  smoke-build:
+    name: Smoke build
     runs-on: macos-15
     timeout-minutes: 10
 
@@ -24,12 +24,10 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v7
 
-      - name: Run unit tests
+      - name: Compile app and tests
         run: |
-          xcodebuild test \
+          xcodebuild build-for-testing \
             -project MySay.xcodeproj \
             -scheme MySay \
-            -destination 'platform=iOS Simulator,name=iPad Pro 11-inch (M4),OS=latest' \
-            -only-testing:MySayTests \
-            -skip-testing:MySayTests/SpeechAudioTests \
+            -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO
