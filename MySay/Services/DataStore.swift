@@ -3,6 +3,7 @@ import SwiftData
 
 /// Owns the SwiftData container, first-launch seeding, and JSON
 /// export/import for backup or moving between iPads.
+@MainActor
 final class DataStore {
     let container: ModelContainer
     var context: ModelContext { container.mainContext }
